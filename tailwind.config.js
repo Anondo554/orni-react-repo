@@ -10,6 +10,7 @@ export default {
         menuColor: "#767676",
         menuHcolor: "#262626",
         categoryBg: "#F5F5F3",
+        categoryBg2: "#979797",
         borderColor: "#F0F0F0",
        
       },

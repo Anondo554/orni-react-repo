@@ -7,24 +7,23 @@ import "slick-carousel/slick/slick.css";
 import NextArrow from "../NextArrow";
 import PrevArrow from "../PrevArrow";
 // import "slick-carousel/slick/slick-theme.css";
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import Bilai from '../../assets/bilai.png'
-import Kalai from '../../assets/kalai.png'
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Bilai from "../../assets/bilai.png";
+import Kalai from "../../assets/kalai.png";
 
 const ProductsPart = () => {
-  let [allData, setAllData] = useState([])
+  let [allData, setAllData] = useState([]);
 
   useEffect(() => {
-      async function alldatas() {
-          let data = await axios.get("https://dummyjson.com/products")
-          // console.log(data);
+    async function alldatas() {
+      let data = await axios.get("https://dummyjson.com/products");
+      // console.log(data);
 
-          setAllData(data.data.products);
-
-      }
-      alldatas()
-  }, [])
+      setAllData(data.data.products);
+    }
+    alldatas();
+  }, []);
 
   // ===================
   var settings = {
@@ -34,52 +33,47 @@ const ProductsPart = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />
+    prevArrow: <PrevArrow />,
   };
   return (
     <>
       <Container>
-      {
-      allData.map(item=>(
-        <Slider {...settings}>
-          <div>
-            <Product
-            imgSrc={item.images}
-            badgeName={'New'}
-            titleP={item.title}
-            price={"$"+item.price}
-            />
-          </div>
-          <div>
-            <Product 
-            imgSrc={item.images}
-             badgeName={'Sell'}
-              titleP={item.title}
-              price={"$"+item.price}
-            />
-          </div>
-          <div>
-            <Product
-             imgSrc={item.images}
-             badgeName={'New'}
-              titleP={item.title}
-              price={"$"+item.price}
-            />
-          </div>
-          <div>
-            <Product 
-            
-            imgSrc={item.images}
-             badgeName={'Sell'}
-              titleP={item.title}
-             price={item.price}
-            />
-          </div>
-        </Slider>
-         )
-         
-        )
-      }
+        {allData.map((item) => (
+          <Slider {...settings}>
+            <div>
+              <Product
+                imgSrc={item.images}
+                badgeName={"New"}
+                titleP={item.title}
+                price={"$" + item.price}
+              />
+            </div>
+            <div>
+              <Product
+                imgSrc={item.images}
+                badgeName={"Sell"}
+                titleP={item.title}
+                price={"$" + item.price}
+              />
+            </div>
+            <div>
+              <Product
+                imgSrc={item.images}
+                badgeName={"New"}
+                titleP={item.title}
+                price={"$" + item.price}
+              />
+            </div>
+            <div>
+              <Product
+                imgSrc={item.images}
+                badgeName={"Sell"}
+                titleP={item.title}
+                price={item.price}
+              />
+            </div>
+          </Slider>
+        ))}
       </Container>
 
       <div className="py-6">
@@ -94,7 +88,6 @@ const ProductsPart = () => {
             <Product />
             <Product />
           </Flex>
-
         </Container>
       </div>
     </>
