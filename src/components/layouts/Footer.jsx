@@ -136,10 +136,7 @@ const Footer = () => {
           </div>
         </Flex>
       </Container>
-    </div>
-    // <Link to= {"/shop"}>
-    //     <h1>Ami Footer</h1>
-    // </Link>
+    </div> 
   );
 };
 
